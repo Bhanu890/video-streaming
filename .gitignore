@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 .env
-db.splite3
+db.sqlite3
 media/
 staticfiles/
 .pytest_cache/
