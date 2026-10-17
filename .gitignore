@@ -1,1 +1,9 @@
-start.txt
+.venv/
+__pycache__/
+*.py[cod]
+.env
+db.splite3
+media/
+staticfiles/
+.pytest_cache/
+.coverage
