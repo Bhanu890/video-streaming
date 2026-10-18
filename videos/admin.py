@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import videos
+from .models import Video
 
 # Register your models here.
-admin.site.register(videos)
+admin.site.register(Video)

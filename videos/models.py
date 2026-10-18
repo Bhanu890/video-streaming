@@ -1,8 +1,13 @@
 from django.db import models
 
 # Create your models here.
-class videos(models.Model):
+class Video(models.Model):
     title = models.CharField(max_length=100)
+    video_file = models.FileField(
+        upload_to="videos/",
+        blank=True,
+        null=True,
+    )
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -12,7 +17,7 @@ class videos(models.Model):
         ('ready', 'Ready'),
         ('failed', 'Failed'),
         ]
-
+    
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='uploaded')
 
     def __str__(self):
