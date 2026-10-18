@@ -40,21 +40,21 @@
     
         <h2> Latest videos</h2>
         {% for video in videos%}
-            <div class="video-card">
-                <h3> {{video.title}}</h3>
-                <p>{{video.description|default:"No description available."}}</p>
-                {% if video.video_file %}
-                    <video width="640" controls preload="metadata">
-                        <source src="{{ video.video_file.url }}" type="video/mp4">
-                        Your browser does not support HTML5 video.
-                    </video>
+
+            <section class="card" style="max-width: 320px">
+                {% if video.thumbnail %}
+                    <img src="{{ video.thumbnail.url }}" alt = "{{ video.title}}" width="320">
                 {% endif %}
-                <p class="status">
-                    Status: {{video.get_status_display}}
-                </p>
+            <div class="card-body">
+                <h4 class="card-title">{{video.title}}</h4>
+                <p class="card-text">{{video.description|default:"No description available."}}</p>
+                {% if video.video_file %}
+                    <a href="{{ video.video_file.url }}" target="_blank" class="btn-solid theme-primary">Watch Video</a>
+                {% endif %}
             </div>
-            {% empty%}
-            <p> No videos available yet. Add one through Django Admin. </p>
-            {% endfor %}
+            </section>
+            {% empty %}
+                <p> No videos available yet. Add one through Django Admin. </p>
+        {% endfor %}
     </body>
 </html>

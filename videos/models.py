@@ -8,6 +8,12 @@ class Video(models.Model):
         blank=True,
         null=True,
     )
+    thumbnail = models.ImageField(
+        upload_to="thumbnails/",
+        blank=True,
+        null=True,
+    )
+    hls_playlist = models.CharField(max_length = 500, blank=True, null = True,)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
